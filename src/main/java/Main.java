@@ -1,6 +1,4 @@
-import dataBase.ConexionSGBD;
-import dataBase.InsertarDatos;
-import dataBase.PedirDatos;
+import dataBase.EstructuraDB;
 import libs.Leer;
 
 public class Main {
@@ -20,8 +18,9 @@ public class Main {
             switch (opcion) {
                 case "0" -> {salir = true;}
                 case "1" -> {
-                    InsertarDatos.crearDB();}
-                case "2" -> {InsertarDatos.crearTablaDepartamentos(); InsertarDatos.crearTablaEmpleados();}
+                    EstructuraDB.crearDB();}
+                case "2" -> {
+                    EstructuraDB.crearTablaDepartamentos(); EstructuraDB.crearTablaEmpleados();}
                 /*case "3" -> {
                     PedirDatos.introducirNuevoDep();}
                 case "4" -> {PedirDatos.introducirNuevoEmpleado();}*/

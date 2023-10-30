@@ -25,7 +25,7 @@ public class PedirDatos {
 
         PreparedStatement ps = null;
         ResultSet rs = null;
-        try (Connection conexion = ConexionMySQL.conectar("miBD")) {
+        try (Connection conexion = ConexionPostgreSQL.conectar("basepostgres")) {
 
             // Verificar si el departamento existe
             ps = conexion.prepareStatement("SELECT dept_no FROM departamentos WHERE dnombre = ?");
@@ -45,7 +45,7 @@ public class PedirDatos {
             ps.setInt(3, idDepRecuperado);
             ps.setString(4, nuevoEmp.getOficio());
             ps.setInt(5, nuevoEmp.getDir());
-            ps.setDate(6, new java.sql.Date(nuevoEmp.getFecha_alta().getTime()));
+            ps.setDate(6, new Date(nuevoEmp.getFecha_alta().getTime()));
             ps.setFloat(7, nuevoEmp.getSalario());
             ps.setFloat(8, nuevoEmp.getComision());
             ps.execute();
@@ -77,7 +77,7 @@ public class PedirDatos {
             return;
         }
 
-        try (Connection conexion = ConexionMySQL.conectar("miBD")) {
+        try (Connection conexion = ConexionPostgreSQL.conectar("basepostgres")) {
             PreparedStatement ps = conexion.prepareStatement("INSERT INTO departamentos VALUES (?,?,?)");
             ps.setInt(1, nuevoDep.getId_departamento());
             ps.setString(2, nuevoDep.getNombre());

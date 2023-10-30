@@ -1,12 +1,14 @@
 package dataBase;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Arrays;
 import java.util.List;
 
 import static dataBase.ConexionSGBD.conectar;
 
-public class InsertarDatos {
+public class EstructuraDB {
 
     public static void crearDB(){
         try (Connection miCon = conectar()){
